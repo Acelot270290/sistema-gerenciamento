@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller{
+class Usuarios extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
@@ -11,9 +11,9 @@ class Home extends CI_Controller{
 	}
 	public function index() {
 
-		/*$data = array(
+		$data = array(
 			'usuarios' => $this->ion_auth->users()->result(), //Pega todos os usuarios
-		);*/
+		);
 
 		$this->load->view('layout/header', $data);
 		$this->load->view('usuarios/index');
