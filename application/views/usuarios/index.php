@@ -27,7 +27,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <a title="Cadastrar Novo Usuário" href="#" class="btn btn-success btn-sm float-right"><i class="fas fa-user-plus"></i>&nbsp;Novo</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -38,7 +38,7 @@
                                             <th>Usuário</th>
                                             <th>Login</th>
                                             <th>Ativo</th>
-                                            <th>Ações</th>
+                                            <th class="text-right">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,9 +48,9 @@
                                             <td><?php echo $user ->username; ?></td>
                                             <td><?php echo $user ->email; ?></td>
                                             <td><?php echo $user ->active; ?></td>
-                                            <td>
-                                                <a title="Editar" href="#" class="btn btn-sm btn-primary">Editar</a>
-                                                <a title="Excluir" href="#" class="btn btn-sm btn-danger">Excluir</a>
+                                            <td class="text-right">
+                                                <a title="Editar" href="#" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i>&nbsp;Editar</a>
+                                                <a title="Excluir" href="#" class="btn btn-sm btn-danger"><i class="fas fa-user-times"></i>&nbsp;Excluir</a>
                                             </td>
                                         <?php } ?>
                                         </tr>
