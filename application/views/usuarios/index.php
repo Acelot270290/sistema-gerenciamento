@@ -38,7 +38,7 @@
                                             <th>Usuário</th>
                                             <th>Login</th>
                                             <th>Ativo</th>
-                                            <th class="text-right">Açõe</th>
+                                            <th class="text-right">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
