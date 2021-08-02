@@ -17,7 +17,7 @@
 
 						<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="<?php echo base_url('/'); ?>">Home</a></li>
+							<li class="breadcrumb-item"><a href="<?php echo base_url('/'); ?>">Usuarios</a></li>
 							<li class="breadcrumb-item active" aria-current="page"><?php echo $titulo; ?></li>
 						</ol>
 						</nav>
@@ -38,7 +38,7 @@
                                             <th>Usuário</th>
                                             <th>Login</th>
                                             <th>Ativo</th>
-                                            <th class="text-right">Ações</th>
+                                            <th class="text-right no-sort">Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,7 +49,7 @@
                                             <td><?php echo $user ->email; ?></td>
                                             <td><?php echo $user ->active; ?></td>
                                             <td class="text-right">
-                                                <a title="Editar" href="#" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i>&nbsp;Editar</a>
+                                                <a title="Editar" href="<?php echo base_url('usuarios/edit/' . $user->id); ?>" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i>&nbsp;Editar</a>
                                                 <a title="Excluir" href="#" class="btn btn-sm btn-danger"><i class="fas fa-user-times"></i>&nbsp;Excluir</a>
                                             </td>
                                         <?php } ?>

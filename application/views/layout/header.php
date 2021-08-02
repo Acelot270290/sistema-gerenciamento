@@ -22,10 +22,10 @@
     <!-- Custom styles for this template-->
     <link href="<?php echo base_url('public/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
-    <?php if (isset($scripts)): ?> 
+    <?php if (isset($styles)): ?> 
         
-       <?php foreach ($scripts as $script): ?> 
-             <link href="<?php echo base_url('public/' . $script); ?>" rel="stylesheet">
+       <?php foreach ($styles as $style): ?> 
+             <link href="<?php echo base_url('public/' . $style); ?>" rel="stylesheet">
         <?php endforeach; ?>
         
     <?php endif; ?>
