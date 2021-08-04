@@ -31,10 +31,14 @@
                         </div>
                         <div class="card-body">
                         <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <div class="form-group row">
+
+							<div class="col-md-4">
+							<label for="exampleInputEmail1">Nome</label>
+                                <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo $usuario->first_name; ?>">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+							</div>
+                                
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
