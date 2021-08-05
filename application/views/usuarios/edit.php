@@ -21,21 +21,24 @@
       <div class="card-body">
         <form>
           <div class="form-group row">
+
             <div class="col-md-4">
               <label for="exampleInputEmail1">Nome</label>
               <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo $usuario->first_name; ?>">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
             </div>
-          </div>
-		  <div class="col-md-4">
+			<div class="col-md-4">
               <label for="exampleInputEmail1">Sobrenome</label>
               <input type="text" class="form-control" name="last_name" placeholder="Seu Sobrenome" value="<?php echo $usuario->last_name; ?>">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
+        	</div>
+			<div class="col-md-4">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Seu email" value="<?php echo $usuario->email; ?>">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        	</div>
           </div>
-                   <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
