@@ -37,19 +37,20 @@ class Usuarios extends CI_Controller{
 
 
 	}
-	public function edit($user_id = NULL){
+	public function edit($usuario_id = NULL){
 
-		if(!$user_id || !$this->ion_auth->user($user_id)->row()){
+		if(!$usuario_id || !$this->ion_auth->user($usuario_id)->row()){
 			exit('Usuário não encontrado');
 		}else{
 			$data = array(
 				'titulo'=> 'Editar usuário',
 	
-				'usuario'=> $this->ion_auth->user($user_id)->row(),
+				'usuario'=> $this->ion_auth->user($usuario_id)->row(),
+				'perfil_usuario'=> $this->ion_auth->get_users_groups($usuario_id)->row()
 			);
 
 			/*echo '<prev>';
-			print_r($data['usuario']);
+			print_r($data['perfil_usuario']);
 			exit();*/
 
 			$this->load->view('layout/header', $data);

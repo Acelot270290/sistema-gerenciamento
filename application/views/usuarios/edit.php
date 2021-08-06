@@ -22,23 +22,41 @@
         <form>
           <div class="form-group row">
 
-            <div class="col-md-4">
-              <label for="exampleInputEmail1">Nome</label>
-              <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo $usuario->first_name; ?>">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <div class="col-md-4">
+                <label for="exampleInputEmail1">Nome</label>
+                <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo $usuario->first_name; ?>">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
+              </div>
+              <div class="col-md-4">
+                <label for="exampleInputEmail1">Sobrenome</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Seu Sobrenome" value="<?php echo $usuario->last_name; ?>">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+            <div class="col-md-4">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Seu email" value="<?php echo $usuario->email; ?>">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-			<div class="col-md-4">
-              <label for="exampleInputEmail1">Sobrenome</label>
-              <input type="text" class="form-control" name="last_name" placeholder="Seu Sobrenome" value="<?php echo $usuario->last_name; ?>">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        	</div>
-			<div class="col-md-4">
-              <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" name="email" placeholder="Seu email" value="<?php echo $usuario->email; ?>">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        	</div>
           </div>
+
+          <div class="form-group row">
+          <div class="col-md-4">
+                <label">Ativo</label>
+                <select class="form-control" name="active">
+                  <option value="0" <?php echo ($usuario->active == 0) ? 'selected' : '' ?> >Não</option>
+                  <option value="1" <?php echo ($usuario->active == 1) ? 'selected' : '' ?>>Sim</option>
+                </select>
+            </div>
+						<div class="col-md-4">
+                <label">Perfil de Acesso</label>
+                <select class="form-control" name="perfil_usuario">
+                  <option value="2" <?php echo ($perfil_usuario->id == 2) ? 'selected' : '' ?> >Vendedor</option>
+                  <option value="1" <?php echo ($perfil_usuario->id == 1) ? 'selected' : '' ?>>Adminsitrador</option>
+                </select>
+            </div>
+          </div>
+
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
