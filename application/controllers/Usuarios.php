@@ -50,7 +50,7 @@ class Usuarios extends CI_Controller{
 			);
 
 			/*echo '<prev>';
-			print_r($data['perfil_usuario']);
+			print_r($this->input->post());
 			exit();*/
 
 			$this->load->view('layout/header', $data);
