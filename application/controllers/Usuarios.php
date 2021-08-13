@@ -40,11 +40,20 @@ class Usuarios extends CI_Controller{
 	public function edit($usuario_id = NULL){
 
 		if(!$usuario_id || !$this->ion_auth->user($usuario_id)->row()){
-			exit('Usuário não encontrado');
+
+			$this->session->set_flashdata('erro','Usuário não Encontrado');
+			redirect('usuarios');
+
 		}else{
 
-			$this->form_validation->set_rules('first_name', '','trim|required');
-
+			$this->form_validation->set_rules('first_name', 'Primeiro Nome','trim|required');
+			$this->form_validation->set_rules('last_name', 'Sobrenome','trim|required');
+			$this->form_validation->set_rules('email', 'email','trim|required|valid_email|callback_email_check');
+			$this->form_validation->set_rules('username', 'Nome de Usuário','trim|required');
+			$this->form_validation->set_rules('password','Senha', 'min_length[5]|max_length[255]');
+			$this->form_validation->set_rules('confirm_password','Confirma Senha', 'matches[password]');
+			
+			
 			if($this->form_validation->run()){
 				exit('Validado');
 			}else{
@@ -65,6 +74,23 @@ class Usuarios extends CI_Controller{
 		}
 
 	}
+	/*public function email_check($email){
+		$usuario_id = $this->input->post('usuario_id');
+
+		if($this->core_model->get('users', array('email' => $email, 'id !='=> $usuario_id))){
+
+			$this->form_validation->set_message('email_chek','Esse email já existe');
+
+			return FALSE;
+
+			return TRUE;
+
+		}else{
+
+
+
+		}
+	}*/
 
 }
 

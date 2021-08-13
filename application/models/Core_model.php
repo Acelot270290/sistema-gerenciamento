@@ -118,3 +118,4 @@ class Core_model extends CI_model {
 	}
 	
 }
+}
