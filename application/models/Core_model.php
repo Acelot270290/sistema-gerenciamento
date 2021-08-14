@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Core_model extends CI_model {
 
-	public function get all($tabela = NULL , $condicao = NULL){
+	public function get_all($tabela = NULL , $condicao = NULL){
 		
 		if ($tabela) {
 
-			if(is_array($condicao){
+			if(is_array($condicao)){
 
 				$this->db->where($condicao);
 
@@ -18,37 +18,38 @@ class Core_model extends CI_model {
 
 			return FALSE;
 		}
+	}
 		public function get_by_id($tabela = NULL, $condicao = NULL){
 			
 			if($tabela && is_array($condicao)){
 
-				$this-db-where($condicao);
+				$this->db->where($condicao);
 				$this->db->limit(1);
 
-				return $this->db-get($tabela)->row();
+				return $this->db->get($tabela)->row();
 			}else{
 				return FALSE;
 			}
 		}
-		public function insert ($tabela = NULL, $data = NULL, $get_lasta_id = NULL){
+		public function insert ($tabela = NULL, $data = NULL, $get_last_id = NULL){
 
 			if($tabela && is_array($data)){
 
 				$this->db->insert($tabela, $data);
 
-				if($get_lasta_id){
+				if($get_last_id){
 
-					$this=>session->set_userdata('last_id', $this->db->insert_id());
+					$this->session->set_userdata('last_id', $this->db->insert_id());
 
 				}
 
-				if(this->db->affected_rows() > 0){
+				if($this->db->affected_rows() > 0){
 
-					this->session->set_flashdata('Sucesso', 'Dados Salvos com Sucesso')
+					$this->session->set_flashdata('Sucesso', 'Dados Salvos com Sucesso');
 
 				}else{
 
-					this->session->set_flashdata('ERRO', 'Erros em salva os dados')
+					$this->session->set_flashdata('ERRO', 'Erros em salva os dados');
 
 
 				}
@@ -57,18 +58,18 @@ class Core_model extends CI_model {
 
 		}
 
-		public function insert ($tabela = NULL, $data = NULL, $condicao = NULL){
+		public function update ($tabela = NULL, $data = NULL, $condicao = NULL){
 
 			if($tabela && is_array($data) && is_array($condicao)){
 
-				if($this->db->update($tabela, $data, $condicao));{
+				if($this->db->update($tabela, $data, $condicao)){
 
-					this->session->set_flashdata('Sucesso', 'Dados Salvos com Sucesso');
+					$this->session->set_flashdata('Sucesso', 'Dados Salvos com Sucesso');
 
 
 				}else{
 
-					this->session->set_flashdata('ERRO', 'Erro ao atualizar os dados');
+					$this->session->set_flashdata('ERRO', 'Erro ao atualizar os dados');
 				}
 
 
@@ -76,13 +77,14 @@ class Core_model extends CI_model {
 
 				return FALSE;
 			}
+			
 
 		
 
 		}
-		public function delete ($tabela = NULL, $data = NULL){
+		public function delete ($tabela = NULL, $condicao = NULL){
 
-			$thi->db->db_debug = FALSE;
+			$this->db->db_debug = FALSE;
 
 			if($tabela && is_array($condicao)){
 
@@ -96,7 +98,7 @@ class Core_model extends CI_model {
 						if($code == 1451){
 
 
-							$this->session->set_flashdata('Erro','Esse registro naso poderar ser excluido, pois está sendo utilizado em outra tabela');
+							$this->session->set_flashdata('Erro','Esse registro não poderar ser excluido, pois está sendo utilizado em outra tabela');
 
 						}
 					}
@@ -115,7 +117,7 @@ class Core_model extends CI_model {
 
 
 		}
-	}
+	
 	
 }
 }
