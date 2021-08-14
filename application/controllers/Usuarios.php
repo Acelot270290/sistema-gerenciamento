@@ -45,7 +45,7 @@ class Usuarios extends CI_Controller{
 			redirect('usuarios');
 
 		}else{
-
+			//Validação do formulario
 			$this->form_validation->set_rules('first_name', 'Primeiro Nome','trim|required');
 			$this->form_validation->set_rules('last_name', 'Sobrenome','trim|required');
 			$this->form_validation->set_rules('email', 'email','trim|required|valid_email|callback_email_check');
@@ -55,7 +55,36 @@ class Usuarios extends CI_Controller{
 			
 			
 			if($this->form_validation->run()){
-				exit('Validado');
+
+				$data = elements(
+					array(
+						'first_name',
+						'last_name',
+						'email',
+						'username',
+						'active',
+						'password',
+
+					),$this->input->post()
+
+				);
+
+				$data = $this->security->xss_clean($data);
+				$password = $this->input->post('password');
+				if(!$password){
+					unset($data['password']);
+
+				}
+
+				if($this->core_model->update('users'. $data, array('id'=> $usuario_id))){
+					//parei por aqui continuar no video 17:22
+				}
+
+				//Verificar se está passando senha em branco
+				echo '<prev>';
+				print_r($data);
+				exit();
+
 			}else{
 
 		
