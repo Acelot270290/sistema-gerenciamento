@@ -76,18 +76,32 @@ class Usuarios extends CI_Controller{
 
 				}
 
-				if($this->core_model->update('users'. $data, array('id'=> $usuario_id))){
-					//parei por aqui continuar no video 17:22
-				}
-
-				//Verificar se está passando senha em branco
-				echo '<prev>';
+				if($this->ion_auth->update($usuario_id, $data,)){
+									//Verificar se está passando senha em branco
+				/*echo '<prev>';
 				print_r($data);
-				exit();
+				exit();*/
 
+				$perfil_usuario_db = $this->ion_auth->get_users_groups($usuario_id)->row();
+
+				$perfil_usuario_post = $this->input->post('perfil_usuario');
+
+				if($perfil_usuario_post != $perfil_usuario_db->id){
+
+					//se for dirferente atualiza o grupo
+					$this->ion_auth->remove_from_group($perfil_usuario_db->id, $usuario_id);
+					$this->ion_auth->add_to_group($perfil_usuario_post, $usuario_id);
+
+					}
+
+					$this->session->set_flashdata('sucesso', 'Dados salvos com Sucesso');
+				}else{
+					
+					$this->session->set_flashdata('erro', 'Erro ao Salvar');
+
+				}
+				redirect('usuarios');
 			}else{
-
-		
 
 				$data = array(
 					'titulo'=> 'Editar usuário',

@@ -12,7 +12,6 @@
           <li class="breadcrumb-item active" aria-current="page"><?php echo $titulo; ?></li>
         </ol>
       </nav>
-      </nav>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -71,7 +70,7 @@
               </div>
             </div>
             <input type="hidden" name="usuario_id" value="<?php echo $usuario->id; ?>"
-        </div>
+				</div>
       </div>
       <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
       </form>
@@ -79,5 +78,4 @@
   </div>
 </div>
 <!-- /.container-fluid -->
-</div>
 <!-- End of Main Content -->

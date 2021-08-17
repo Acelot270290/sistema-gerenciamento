@@ -12,6 +12,21 @@
             <li class="breadcrumb-item active" aria-current="page"><?php echo $titulo; ?></li>
          </ol>
       </nav>
+<!-- Mensagem de Sucesso ao cadastrar usuario-->
+		<?php if($message = $this->session->flashdata('sucesso')){ ?>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="alert alert-sucess alert-dismissible fade show" role="alert">
+               <strong><i class="fas fa-smile-wink"></i>&nbsp;&nbsp;<?php echo $message ?></strong> 
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+         </div>
+      </div>
+      <?php } ?>
+
+		<!-- Mensagem de Erro ao achar usuario -->
       <?php if($message = $this->session->flashdata('erro')){ ?>
       <div class="row">
          <div class="col-md-12">
