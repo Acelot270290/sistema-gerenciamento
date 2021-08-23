@@ -24,7 +24,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Seja Bem vindo!</h1>
                 </div>
-                <form class="user" name="form_index" method="POST">
+                <form class="user" name="form_auth" method="POST" action="<?php echo base_url('login/auth'); ?>">
                   <div class="form-group">
                     <input type="email" name="email" class="form-control form-control-user"  placeholder="Digite o seu email">
                   </div>
